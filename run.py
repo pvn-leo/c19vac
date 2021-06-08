@@ -24,13 +24,9 @@ def sendmessage(message1, current_time):
 x = PrettyTable()
 x.field_names = ["Pincode", "Date", "Name", "Vaccine", "Age", "Fee", "Available"]
 
-
-post_str = ["560011","560018","560028","560039", "560050", "560060", "560061","560078", "560098"]
-#post_str = ["560001"]
+post_str = ["560001"]
 age = 50
-
 print_flag = 'Y'
-numdays = 1
 
 base = datetime.datetime.today()
 header={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
