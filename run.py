@@ -24,13 +24,17 @@ def sendmessage(message1, current_time):
 x = PrettyTable()
 x.field_names = ["Pincode", "Date", "Name", "Vaccine", "Age", "Fee", "Available"]
 
-post_str = ["560001"]
+
+#post_str = ["560011","560018","560028","560039", "560050", "560060", "560061","560078", "560098"]
+post_str = ["560039"]
 age = 50
+
 print_flag = 'Y'
+numdays = 1
 
 base = datetime.datetime.today()
 header={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-date_str = ["23-05-2021"]
+date_str = ["17-04-2022"]
 
 #print(date_str)
 def job():
@@ -44,7 +48,6 @@ def job():
         for INP_DATE in date_str:
             URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode={}&date={}".format(POST_CODE, INP_DATE)
             response = requests.get(URL, headers=header)
-            #print(response)
             if response.ok:
                 resp_json = response.json()
                 #print(json.dumps(resp_json, indent = 1))
@@ -97,8 +100,8 @@ def job():
 
 if __name__ == "__main__":
     print("Running .........")
-    schedule.every().minute.at(":00").do(job)
-    schedule.every().minute.at(":30").do(job)
+    schedule.every(1).minutes.do(job)
+    #schedule.every().minute.at(":30").do(job)
     while 1:
         schedule.run_pending()
         time.sleep(1)
